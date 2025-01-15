@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-function ProductListing({ product, textSize }) {
-  
+import QuantitySelector from '../miscellaneous/QuantitySelector';
 
+function ProductListing({ product, textSize, addQuantityToProduct }) {
   return (
     <td>
       <div style={{ border: '1px solid black', width: '70vw' }}>
@@ -25,6 +25,11 @@ function ProductListing({ product, textSize }) {
           </h4>
           <p style={{ fontSize: textSize }}>{product.description}</p>
         </div>
+        <QuantitySelector
+          addQuantity={(quantityToAdd) => {
+            addQuantityToProduct(product, quantityToAdd);
+          }}
+        />
       </div>
     </td>
   );
